@@ -44,6 +44,8 @@ module.exports.setup = function(config) {
 				tunnelIdentifier: `github-${process.env.GITHUB_RUN_ID}`,
 			},
 
+			hostname: "127.0.0.1",
+
 			browsers: ["SauceLabs_firefox", "SauceLabs_ie11"],
 
 			captureTimeout: 300000, // 5 minutes
