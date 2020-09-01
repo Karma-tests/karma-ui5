@@ -23,7 +23,7 @@ jobs:
       with:
         username: ${{ secrets.SAUCE_USERNAME }}
         accessKey: ${{ secrets.SAUCE_ACCESS_KEY }}
-        tunnelIdentifier: github-${{ github.run_id }}
+        tunnelIdentifier: ${{ github.run_id }}
         restUrl: https://eu-central-1.saucelabs.com/rest/v1
     - run: npm run integration-saucelabs
       env:

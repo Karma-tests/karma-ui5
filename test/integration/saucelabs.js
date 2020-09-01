@@ -33,6 +33,8 @@ module.exports.setup = function(config) {
 			sauceLabs: {
 				testName: "karma-ui5",
 				region: "eu",
+				username: process.env.SAUCE_USERNAME,
+				accessKey: process.env.SAUCE_ACCESS_KEY,
 				build: process.env.GITHUB_RUN_ID,
 				recordVideo: false,
 				recordScreenshots: false,
@@ -41,10 +43,10 @@ module.exports.setup = function(config) {
 				},
 				// Sauce connect is started via GitHub Action in .github/workflows/saucelabs.yml
 				startConnect: false,
-				tunnelIdentifier: `github-${process.env.GITHUB_RUN_ID}`,
+				tunnelIdentifier: process.env.GITHUB_RUN_ID,
 			},
 
-			hostname: "127.0.0.1",
+			hostname: require("internal-ip").v4.sync(),
 
 			browsers: ["SauceLabs_firefox", "SauceLabs_ie11"],
 
